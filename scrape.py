@@ -85,4 +85,4 @@ if __name__ == "__main__":
     if data:
         convert_to_csv(data)
         #TODO Set up Google Cloud Project and test this
-        #write_to_google_sheets("aes_data.csv", "AES Data")
+        write_to_google_sheets("aes_data.csv", "AES Data")
