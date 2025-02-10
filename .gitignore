@@ -6,6 +6,7 @@ dist/
 wheels/
 *.egg-info
 aes*.json
+aes*.csv
 
 # Virtual environments
 .venv
