@@ -2,10 +2,11 @@ import requests
 import json
 import csv
 import gspread
+import sys
 from oauth2client.service_account import ServiceAccountCredentials
 
-def fetch_aes_data():
-    url = "https://www.advancedeventsystems.com/api/landing/events/36812/teams"
+def fetch_aes_data(tournament_id):
+    url = f"https://www.advancedeventsystems.com/api/landing/events/{tournament_id}/teams"
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
     }
@@ -75,7 +76,13 @@ def write_to_google_sheets(csv_filename, sheet_name):
     print(f"Data successfully written to Google Sheets: {sheet_name}")
 
 if __name__ == "__main__":
-    data = fetch_aes_data()
+    if len(sys.argv) < 2:
+        print("Usage: python scrape.py <tournament_id>")
+        sys.exit(1)
+    
+    tournament_id = sys.argv[1]
+    data = fetch_aes_data(tournament_id)
     if data:
         convert_to_csv(data)
+        #TODO Set up Google Cloud Project and test this
         #write_to_google_sheets("aes_data.csv", "AES Data")
