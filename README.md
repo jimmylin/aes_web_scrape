@@ -27,9 +27,9 @@ To run this project, ensure you have the following installed:
 To enable Google Sheets integration, follow these steps:
 1. Go to the [Google Cloud Console](https://console.cloud.google.com/).
 2. Create a new project (or use an existing one).
-3. Enable the Google Sheets API.
+3. Enable the Google Sheets and Drive APIs.
 4. Create a service account and download the `credentials.json` file.
-5. Share your Google Sheet with the service account email.
+5. Create a sheet with the name specificed in the script (default: "AES Data") and share your Google Sheet with the service account email (found in credentials.json).
 
 ### 2. Running the Script
 Execute the script by passing a tournament ID as an argument:
